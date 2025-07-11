@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Advance Energy Drink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="login-bg">
+    <div class="bg-shape bg-shape1"></div>
+    <div class="bg-shape bg-shape2"></div>
+  </div>
+  <div class="login-container glass">
+    <div class="login-logo">
+      <img src="../can-placeholder.png" alt="Advance Logo">
+      <span>ADVANCE Admin</span>
+    </div>
+    <h2>Welcome Back</h2>
+    <p class="login-subtitle">Sign in to manage your products, gallery, and orders</p>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-wrapper">
+          <span class="input-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M2 6.5A2.5 2.5 0 014.5 4h15A2.5 2.5 0 0122 6.5v11A2.5 2.5 0 0119.5 20h-15A2.5 2.5 0 012 17.5v-11z" stroke="#E53935" stroke-width="1.5"/><path d="M22 6.5l-10 7-10-7" stroke="#E53935" stroke-width="1.5"/></svg>
+          </span>
+          <input type="email" id="email" name="email" placeholder="admin@example.com" required>
+        </div>
+      </div>
+      <div class="form-group password-group">
+        <label for="password">Password</label>
+        <div class="input-wrapper">
+          <span class="input-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="8" rx="2" stroke="#E53935" stroke-width="1.5"/><path d="M8 11V8a4 4 0 118 0v3" stroke="#E53935" stroke-width="1.5"/></svg>
+          </span>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+          <span class="toggle-password" id="togglePassword" title="Show/Hide Password"></span>
+        </div>
+      </div>
+      <button type="submit" id="login-btn">
+        <span class="btn-text">Login</span>
+        <span class="btn-spinner" id="btnSpinner" style="display:none;">
+          <svg width="22" height="22" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-dasharray="31.4 31.4" stroke-dashoffset="0"><animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.8s" repeatCount="indefinite"/></circle></svg>
+        </span>
+      </button>
+      <div id="login-error" class="error-message"></div>
+    </form>
+  </div>
+  <footer class="login-footer">&copy; 2024 Advance Energy Drink. All rights reserved.</footer>
+  <!-- Firebase CDN -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="../firebase-init.js"></script>
+  <script src="js/login.js"></script>
+  <script>
+    // Show/hide password toggle
+    const passwordInput = document.getElementById('password');
+    const togglePassword = document.getElementById('togglePassword');
+    togglePassword.addEventListener('click', function() {
+      const type = passwordInput.type === 'password' ? 'text' : 'password';
+      passwordInput.type = type;
+      this.classList.toggle('show');
+    });
+  </script>
+</body>
+</html> 
